@@ -16,7 +16,7 @@ module SessionsHelper
   
   def admin?
     if current_user.admin != true
-      notice: "Sorry, admins only"
+      redirect_to :root, notice: "Sorry, admins only"
     end
   end
 end

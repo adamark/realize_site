@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120404065644) do
+ActiveRecord::Schema.define(:version => 20120404070428) do
 
   create_table "attachments", :force => true do |t|
     t.string   "image_uid"
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(:version => 20120404065644) do
     t.text     "body"
     t.integer  "user_id"
     t.boolean  "publish"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "thumbs", :force => true do |t|
+    t.string   "uid"
+    t.string   "job"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.2'
+gem 'rails', '3.2.1'
 
 
 gem 'pg'
@@ -15,18 +15,19 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  # gem 'bootstrap-sass', '~> 2.0.2'
   gem 'compass-rails'
-  gem 'compass_twitter_bootstrap'
+  gem 'compass_twitter_bootstrap', :git => 'git://github.com/vwall/compass-twitter-bootstrap.git'
+  # gem 'font-awesome-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
-  # gem 'bootstrap-sass', '~> 2.0.2'
 
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
 
-gem 'haml-rails'
+gem 'haml-rails', '0.3.4'
 gem 'nested_form'
 gem 'gravatar_image_tag'
 gem 'simple_form'
@@ -35,7 +36,7 @@ gem 'fog'
 gem 'dragonfly', '~>0.9.10'
 gem 'rack-cache', :require => 'rack/cache'
 
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.1'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

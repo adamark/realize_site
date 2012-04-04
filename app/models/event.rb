@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
   
-  has_many :attachments, :dependant => :destroy
+  has_many :attachments
   
 end
