@@ -1,0 +1,73 @@
+.bg-stripe
+  position: absolute
+  top: 0
+  left: 0
+  z-index: -100
+  :background-repeat none
+  #yellow
+    z-index: -90
+    :background-image url('y-stripe.png')
+  #green
+    z-index: -80
+    :background-image url('g-stripe.png')
+  #blue
+    z-index: -90
+    :background-image url('b-stripe.png')
+
+#head-bg
+  :background-image url('head-bg.png')
+  :background-repeat no-repeat
+  padding: 30px
+  margin-top: -120px
+
+#head-nav  
+  li a
+    padding: 3px
+    margin: 4px
+    text-align: center
+    color: #F2F2F2
+    font-weight: bold
+    :text-shadow rgb(123,123,123) 0px 0px 2px
+    +border-radius(2px)
+    +box-shadow(rgba(gray, 0.7) 0px 0px 2px)
+    
+  li a:hover
+    :text-shadow rgb(103,103,103) 0px 0px 3px
+    
+  #y-link
+    :background-color #eac965
+    margin-right: -55px
+      
+  #b-link
+    :background-color #6eafdd
+    margin-right: -63px
+  #g-link
+    :background-color #88b16f
+    margin-right: -58px
+
+  li a.active
+    padding: 5px
+    margin-right: -65px
+    i
+      font-size: 18px
+
+
+  
+h1#realize
+  :font-family 'nevisBold', Arial, sans-serif
+  font-size: 72px
+  padding-left: 5px
+  color: #E9E9E9
+  :text-shadow rgb(161,73,73) 0px 0px 3px
+h2#theatre
+  float: right
+  color: #F2F2F2
+  :text-shadow rgb(143,73,73) 0px 1px 2px
+
+.user-btns.well
+  padding: 10px 
+  
+.btn-group
+  float: left
+  width: 109px
+  padding: 5px 0

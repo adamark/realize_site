@@ -1,0 +1,10 @@
+.row
+  = simple_form_for(@user, :html => { :multipart => true, :class => 'form-vertical' }) do |f|
+    .span6.offset2
+      = f.input :name, :input_html => { :class => "span5" }
+      = f.input :email, :input_html => { :class => "span5" }
+      = f.input :password, :input_html => { :class => "span5" }
+      = f.input :password_confirmation, :input_html => { :class => "span5" }
+      = f.input :admin
+    .form-actions.span8
+      = f.button :submit, :class => 'btn-primary'

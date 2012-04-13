@@ -1,0 +1,20 @@
+.row
+  .span8.offset2
+    %h1 All Events
+    = link_to icon("pencil", "New Event"), new_event_url, class: "btn btn-success"
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Title
+          %th Location
+          %th Published?
+          %th Edit
+          %th Delete
+      %tbody
+        - @events.each do |e|
+          %tr
+            %td= e.title
+            %td= e.location
+            %td= e.publish ? "Yes" : "No"
+            %td= link_to icon("edit", "Edit"), edit_event_url(e.id)
+            %td= link_to icon("trash", "Delete Post"), event_url(e.id), method: :delete, confirm: "Are you sure you\'d like to delete this event?", disable_with: "Deleting...", class: "btn btn-danger"

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # skip_before_filter :login_user!, only: [:index, :show]
+  skip_before_filter :login_user!, only: [:show]
   
   def index
     @users = User.all
@@ -10,27 +10,31 @@ class UsersController < ApplicationController
   end
 
   def new
-    # if current_user? || admin?
     @user = User.new
-    # end
   end
 
   def edit
-    # if current_user? || admin?
-      @user = User.find(session[:user])
-    # end
+      @user = User.find(params[:id])
   end
   
   def create
     @user = User.new(params[:user])
-    @user.save
-    redirect_to users_url
+    if @user.save
+      flash[:success] = "Created Successfully!"
+      redirect_to users_url
+    else
+      render 'new'
+    end
   end
   
   def update
     @user = User.find_by_id(params[:id])
-    @user.update_attributes(params[:user])
-    redirect_to users_url
+    if @user.update_attributes(params[:user])
+      flash[:success] = "Updated Successfully!"
+      redirect_to users_url
+    else
+      render 'edit'
+    end
   end
   
   def destroy
@@ -40,4 +44,5 @@ class UsersController < ApplicationController
     end
     redirect_to users_url
   end
+  
 end

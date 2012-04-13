@@ -1,0 +1,12 @@
+.btn-group
+  %a.btn{:href => edit_user_url(current_user)}
+    = icon("user", "#{current_name}")
+  %a.btn.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+    %span.caret
+  %ul.dropdown-menu
+    = content_tag(:li, link_to(icon("file", "Posts"), posts_url))
+    = content_tag(:li, link_to(icon("flag", "Events"), events_url))
+    = content_tag(:li, link_to(icon("user", "My Profile"), edit_user_url(current_user)))
+    %li.divider
+    = content_tag(:li, link_to(icon("signout", "Logout, #{current_name}?"), logout_url))
+    

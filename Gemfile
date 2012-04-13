@@ -15,10 +15,8 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  # gem 'bootstrap-sass', '~> 2.0.2'
   gem 'compass-rails'
   gem 'compass_twitter_bootstrap', :git => 'git://github.com/vwall/compass-twitter-bootstrap.git'
-  # gem 'font-awesome-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
 
@@ -28,7 +26,7 @@ end
 gem 'jquery-rails'
 
 gem 'haml-rails', '0.3.4'
-gem 'nested_form'
+gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
 gem 'gravatar_image_tag'
 gem 'simple_form'
 
@@ -44,10 +42,10 @@ gem 'bcrypt-ruby', '~> 3.0.1'
 # This ensures NO trailing slash ("/") is added to end of URL (for SEO purposes)
 #gem 'rack-rewrite', '1.2.1'
 # Generates SEO-friendly URL slugs
-#gem 'friendly_id', '4.0.1'
+gem 'friendly_id', '4.0.1'
 
 # for the tweet button
-#gem 'tweet-button'
+# gem 'tweet-button'
 
 
 # To use debugger

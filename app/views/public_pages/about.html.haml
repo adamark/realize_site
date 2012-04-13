@@ -1,0 +1,24 @@
+.row
+  .span5.content
+    .posts
+      .page-header
+        %h1= @about.title
+      %p= @about.body
+  .span5.content
+    .posts
+      .post-image
+        = image_tag(@about.attachments.first.image.thumb('400x400').url)
+  = render 'shared/side_links'
+.row
+  .span10.offset1.content
+    .posts
+      - @users.each do |u|
+        .bios.span4
+          %ul.grav.span4.unstyled
+            %li= gravatar_for(u, size: "80")
+            %li
+              %h3= u.name
+          .bio.span4
+            %p= u.bio
+          .contact.span4
+            %p= icon("envelope", u.email)

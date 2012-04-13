@@ -12,4 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-collapse
+//= require bootstrap-dropdown
+//= require bootstrap-tab
+//= require bootstrap-alert
+//= require bootstrap-transition
+//= require nested_form
 //= require_tree .

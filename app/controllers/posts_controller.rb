@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
-  # skip_before_filter :login_user!, only: [:index, :show]
+  skip_before_filter :login_user!, only: [:show]
   
   def index
-    @posts = Posts.all
+    @posts = Post.find(:all, :conditions => ["id != ?", 1], :order => "created_at DESC")
   end
 
   def show
@@ -19,19 +19,31 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params[:post])
-    @post.save
-    redirect_to posts_url
+    if @post.save
+      flash[:success] = "Created Successfully!"
+      redirect_to posts_url
+    else
+      render 'new'
+    end
   end
 
   def update
     @post = Post.find(params[:id])
     if @post.update_attributes(params[:post])
-      redirect_to posts_url, notice: 'Success! We updated your post!'
+      flash[:success] = "Updated Successfully!"
+      redirect_to posts_url
+    else
+      render 'edit'
     end
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
+    @post = Post.find_by_id(params[:id])
+    if @post.destroy
+      flash[:success] = "Deleted"
+      redirect_to posts_url
+    else
+      render 'edit'
+    end
   end
 end

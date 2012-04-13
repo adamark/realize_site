@@ -1,0 +1,14 @@
+- provide(:title, "Sign in")
+%h1 Sign In
+.span10.center
+  = form_tag "/sessions", class: "form-horizontal" do
+    %fieldset
+      .control-group
+        .controls
+          = email_field_tag :email, nil, class: "span3", placeholder: "email@address.com"
+      .control-group
+        .controls
+          = password_field_tag :password, nil, class: "span3", placeholder: "password"
+      .control-group
+        .controls
+          = submit_tag "Go", class: "btn btn-large btn-primary span3"

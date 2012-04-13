@@ -1,0 +1,18 @@
+.row
+  = simple_nested_form_for(@event, :html => { :multipart => true, :class => 'form-vertical' }) do |f|
+    = render 'error_messages', object: f.object
+    .span4
+      = f.input :title, :input_html => { :class => "span4" }
+      = f.input :location, :input_html => { :class => "span4" }
+      = f.input :date, :input_html => { :class => "span4" }
+      = f.input :about, :input_html => { :class => "span4" }
+      = f.input :publish, :as => :boolean
+    .span3.well
+      = f.fields_for :attachments do |attach|
+        = attach.file_field :image, :class => "btn btn-warning"
+        = attach.hidden_field :user_id, :value => current_user.id
+        = attach.link_to_remove "Remove", :class => "btn btn-warning"
+      = f.link_to_add "Add an Image", :attachments, :class => "btn btn-success"
+    .form-actions.span8
+      = f.button :submit, :class => 'btn-primary'
+      = submit_tag 'Cancel', :type => :reset, :class => "btn btn-danger"

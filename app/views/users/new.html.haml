@@ -1,0 +1,7 @@
+.row
+  .span8.offset2
+    %h1 New User
+    - if admin?
+      = render 'new_form'
+    - else
+      = redirect_to @root_url, notice: "Sorry, admins only"

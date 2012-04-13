@@ -1,0 +1,20 @@
+.row
+  .span8.offset2
+    %h1 All Posts
+    = link_to icon("pencil", "New Post"), new_post_url, class: "btn btn-success"
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Title
+          %th Body
+          %th Published?
+          %th Edit
+          %th Delete
+      %tbody
+        - @posts.each do |p|
+          %tr
+            %td= p.title
+            %td= p.body
+            %td= p.publish ? "Yes" : "No"
+            %td= link_to icon("edit", "Edit"), edit_post_url(p.id)
+            %td= link_to icon("trash", "Delete Post"), post_url(p.id), method: :delete, confirm: "Are you sure you\'d like to delete this post?", disable_with: "Deleting...", class: "btn btn-danger"

@@ -1,0 +1,17 @@
+.row
+  .span8.offset1.content
+    - @posts.each do |p|
+      .posts
+        %h2= p.title
+        %p= raw(truncate(p.body, :length => 1000, :omission => '... (continued)'))
+        - if p.attachments.count == 1
+          - p.attachments.each do |a|
+            .post-image
+              = image_tag(a.image.thumb('160x160#').url)
+        %ul.post-info.unstyled
+          %li<
+            Written By:
+            = link_to p.user.name, user_url(p.user.id)
+          %li= "Posted " + distance_of_time_in_words_to_now(p.created_at) + " ago.." 
+          %li= link_to "Read More", post_url(p.id)
+  = render 'shared/side_links'  

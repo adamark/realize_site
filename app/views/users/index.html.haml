@@ -1,0 +1,18 @@
+%h1 Everyone
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Admin?
+      %th Edit
+      %th Delete
+  %tbody
+    - @users.each do |u|
+      %tr
+        %td= u.name
+        %td= u.email
+        %td= u.admin ? "Yes" : "No"
+
+        %td= link_to icon("edit", "Edit"), edit_user_url(u.id)
+        %td= link_to icon("trash", "Delete User"), user_url(u.id), method: :delete, confirm: "Are you sure you\'d like to delete this user?", disable_with: "Deleting...", class: "btn btn-danger" 

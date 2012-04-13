@@ -1,0 +1,15 @@
+.row
+  .span8.offset1.content
+    .posts
+      %h2= @post.title
+      %p= @post.body
+      - if @post.attachments.count == 1
+        - @post.attachments.each do |a|
+          .post-image
+            = image_tag(a.image.thumb('160x160#').url)
+      %ul.post-info.unstyled
+        %li<
+          Written By:
+          = link_to @post.user.name, user_url(@post.user.id)
+        %li= "Posted " + distance_of_time_in_words_to_now(@post.created_at) + " ago.." 
+  = render 'shared/side_links'

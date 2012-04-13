@@ -1,0 +1,15 @@
+.row
+  .span8.offset1.content
+      .posts
+        .page-header
+          %h1.small= @event.title
+        %p When?
+        %h3= @event.date
+        %p Where?
+        %h3= @event.location
+        %p= @event.about
+        - if @event.attachments.count == 1
+          - @event.attachments.each do |a|
+            .post-image
+              = image_tag(a.image.thumb('160x160#').url)
+  = render 'shared/side_links'
