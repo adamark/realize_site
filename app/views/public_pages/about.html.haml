@@ -7,7 +7,7 @@
   .span5.content
     .posts
       .post-image
-        = image_tag(@about.attachments.first.image.thumb('400x400').url)
+        = image_tag(@about.attachments.first.image.thumb('400x400').url) if @about.attachments.present?
   = render 'shared/side_links'
 .row
   .span10.offset1.content
