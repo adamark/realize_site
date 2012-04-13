@@ -11,7 +11,7 @@ class PublicPagesController < ApplicationController
     @posts = Post.find(:all, :conditions => ["id != ? and publish = ?", 1, true], :order => "created_at DESC")
   end
   
-  def events
+  def shows
     @events = Event.find(:all, :conditions => ["publish = ?", true], :order => "created_at DESC")
   end
   

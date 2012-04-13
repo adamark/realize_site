@@ -1,12 +1,11 @@
 RealizeTheatre::Application.routes.draw do
   
-  resources :posts, :users
-  resources :events, :except => [:index]
+  resources :posts, :users, :events
   
-  get '/all/events' => 'events#index', :as => :events
+
   get '/about' => 'public_pages#about', :as => :about
   get '/contact' => 'public_pages#contact', :as => :contact
-  get '/events' => 'public_pages#events', :as => :public_events
+  get '/shows' => 'public_pages#shows', :as => :shows
   get '/donate' => 'public_pages#donate', :as => :donate
   
   get '/login' => 'sessions#new', :as => :login

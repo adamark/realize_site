@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   skip_before_filter :login_user!, only: [:show]
   
   def index
-    @events = Event.all
+    @events = Event.find(:all, :order => "created_at DESC")
   end
 
   def show
