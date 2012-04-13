@@ -2,8 +2,8 @@ RealizeTheatre::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Possible DEBUG
-  config.sass.line_comments = false
-  config.sass.style = :nested
+  # config.sass.line_comments = false
+  # config.sass.style = :nested
 
   # Setting for Heroku to run properly -Greg
   config.assets.initialize_on_precompile = false
